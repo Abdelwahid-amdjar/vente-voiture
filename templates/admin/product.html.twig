@@ -1,0 +1,41 @@
+{% extends 'base.admin.html.twig' %}
+
+
+{% block body %}
+    <!-- Container-fluid starts-->
+    <div class="container-fluid product-wrapper">
+        <div class="product-grid">
+            <div class="product-wrapper-grid">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-xl-3 col-lg-4 col-sm-6 xl-25">
+                            <div class="card">
+                                  <div class="product-box">
+                                            <div class="product-img"><img class="img-fluid" src="{{ product.url }}" alt="">
+                                                <div class="product-hover">
+                                                    <ul>
+                                                        <li><a href="{{ path('app_product_show', {'id': product.id}) }}"><i class="icon-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-details"><a href="{{ path('app_product_show', {'id': product.id}) }}">
+                                                    <h4> {{ product.modele }}</h4></a>
+                                                <p>{{ product.marque}}</p>
+                                                <div class="product-price">$ {{ product.price }}
+                                                    <del>$ {{ product.price + 100 }}</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+{% endblock %}
+
+
+

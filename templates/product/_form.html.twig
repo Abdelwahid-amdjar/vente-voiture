@@ -1,0 +1,100 @@
+
+
+<div class="container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Add Product</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('home') }}"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('app_admin_products') }}"> Products</a></li>
+                    <li class="breadcrumb-item active">Add Product</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid starts-->
+<div class="container-fluid add-product">
+    <div class="row">
+        {{ form_start(form) }}
+        <div class="col-xl-10">
+            <div class="card">
+                <div class="card-body">
+                    <div class="product-info">
+                        <h5>Product</h5>
+                        <div class="product-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Marque</label>
+                                        {{ form_row(form.marque) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Modele</label>
+                                        {{ form_row(form.modele) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Couleur</label>
+                                        {{ form_row(form.couleur) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Puissance</label>
+                                        {{ form_row(form.puissance) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Price</label>
+                                        {{ form_row(form.price) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Product Image Url</label>
+                                        {{ form_row(form.url) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Categorie</label>
+                                        {{ form_row(form.categorie) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="mt-4">
+                        <div class="row">
+                            <button class="btn {{ button_color|default('btn-outline-primary') }} mt-3">{{ button_label|default('Save') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+<!-- Container-fluid Ends-->

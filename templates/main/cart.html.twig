@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/css1/style.css') }}">
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+        <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('assets/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+                <div class="col-md-9 ftco-animate pb-5">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ path('app_index') }}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
+                    <h1 class="mb-3 bread">Continue shopping</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="cart-list">
+                        {% set total = 0 %}
+                        {% set totalA = 0 %}
+                        <table class="table"  >
+                            <thead class="thead-primary" style="background: rgb(53, 201, 53);">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for commandLine in cart.commandeLines %}
+                            <tr class="text-center">
+                                {% set cartForm = remove_from_cart_form.createView %}
+                                {{ form_start(cartForm) }}
+                                <td class="product-remove"><button type="submit"><span class="ion-ios-close"></span></button></td>
+                                {{ form_end(cartForm) }}
+                                <td class="image-prod"><div class="img rounded d-flex align-items-end" style="background-image:url({{ commandLine.product.url }});"></div></td>
+                                <td class="product-name">
+                                    <h3>{{ commandLine.product.marque }}</h3>
+                                    <p>{{ commandLine.product.modele }}</p>
+                                </td>
+
+                                <td class="price">${{ commandLine.price }}</td>
+
+                                <td class="quantity">
+                                    <!--  -->
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="quantity" class="quantity form-control input-number" value="{{ commandLine.quantity }}" min="1" max="100">
+                                    </div>
+                                </td>
+
+                                <td class="total">${{ commandLine.price * commandLine.quantity}}</td>
+                            </tr><!-- END TR-->
+                                {%set total = total + commandLine.price * commandLine.quantity%}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>Coupon Code</h3>
+                        <p>Enter your coupon code if you have one</p>
+                        <form action="#" class="info">
+                            <div class="form-group">
+                                <label for="">Coupon code</label>
+                                <input type="text" class="form-control text-left px-3" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+                    <p><a href="{{ path('app_checkout') }}" class="btn btn-primary py-3 px-4">Apply Coupon</a></p>
+                </div>
+                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>Estimate shipping and tax</h3>
+                        <p>Enter your destination to get a shipping estimate</p>
+                        <form action="#" class="info">
+                            <div class="form-group">
+                                <label for="">Country</label>
+                                <input type="text" class="form-control text-left px-3" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">State/Province</label>
+                                <input type="text" class="form-control text-left px-3" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Zip/Postal Code</label>
+                                <input type="text" class="form-control text-left px-3" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+                    <p><a href="{{ path('app_checkout') }}" class="btn btn-primary py-3 px-4">Estimate</a></p>
+                </div>
+                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                    {%set totalA = total - 3%}
+                    <div class="cart-total mb-3">
+                        <h3>Cart Totals</h3>
+                        <p class="d-flex">
+                            <span>Subtotal  :</span>
+                            <span>${{ total }}</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Delivery  :</span>
+                            <span>$0.00</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Discount  :</span>
+                            <span>$3.00</span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>Total  :</span>
+                            <span>${{ totalA }}</span>
+                        </p>
+                    </div>
+                    <p><a href="{{ path('app_checkout') }}" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

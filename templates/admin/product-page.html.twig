@@ -1,0 +1,168 @@
+{% extends 'base.admin.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Product Page</h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('home') }}">                                       <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Ecommerce</li>
+                                <li class="breadcrumb-item active"><a href="{{ path('app_admin_products') }}">Products</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+                <div>
+                    <div class="row product-page-main p-0">
+                        <div class="col-xl-5 col-md-6 box-col-7 xl-50">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-9 product-main">
+                                            <div class="pro-slide-single">
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                                <div><img class="img-fluid" src="{{ product.url }}" alt=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 product-thumbnail">
+                                            <div class="pro-slide-right">
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                                <div>
+                                                    <div class="slide-box"><img src="{{ product.url }}" alt=""></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 box-col-12 proorder-xl-3 xl-100">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="pro-group pt-0 border-0">
+                                        <div class="product-page-details mt-0">
+                                            <h3>{{ product.modele }} {{ product.marque }} </h3>
+                                        </div>
+                                        <div class="product-price">$ {{ product.price }}
+                                            <del>$ {{ product.price + 100}} </del>
+                                        </div>
+                                        <div class="color-selector">
+                                            <ul>
+                                                <li class="active white"></li>
+                                                <li class="bg-primary">                                              </li>
+                                                <li class="bg-secondary"></li>
+                                                <li class="bg-success"></li>
+                                                <li class="bg-warning"></li>
+                                                <li class="bg-danger"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="pro-group">
+                                            <div class="row">
+                                                <div class="col-md-4 xl-50 box-col-30">
+                                                    <h6 class="product-title">share it</h6>
+                                                </div>
+                                                <div class="col-md-7 xl-50 box-col-70">
+                                                    <div class="product-icon">
+                                                        <ul class="product-social">
+                                                            <li class="d-inline-block"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                                            <li class="d-inline-block"><a href="https://www.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                                            <li class="d-inline-block"><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                                            <li class="d-inline-block"><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram">                               </i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6 box-col-5 xl-50 proorder-lg-1">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- side-bar colleps block stat-->
+                                    <div class="filter-block">
+                                        <h4>More Information </h4>
+                                        <ul>
+                                            <li>
+                                                <div class="form-check">
+                                                    puissance est :<label class="form-check-label" for="Raymond">{{ product.puissance }} ( che )</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-check">
+                                                    Couleur est : <label class="form-check-label" for="Pepe-Jeans">{{ product.couleur }}</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="collection-filter-block">
+                                        <ul class="pro-services">
+                                            <li>
+                                                <div class="d-flex"><i data-feather="truck"></i>
+                                                    <div class="flex-grow-1">
+                                                        <h5>Free Shipping                                    </h5>
+                                                        <p>Free Shipping World Wide</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="d-flex"><i data-feather="clock"></i>
+                                                    <div class="flex-grow-1">
+                                                        <h5>24 X 7 Service                                    </h5>
+                                                        <p>Online Service For New Customer                                 </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- silde-bar colleps block end here-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    <!-- Container-fluid Ends-->
+
+{% endblock %}

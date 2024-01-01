@@ -1,0 +1,68 @@
+{% extends 'base.admin.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>User Profile</h3>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('home') }}"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{ path('app_user') }}">Users</a></li>
+                        <li class="breadcrumb-item active">User Profile</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="user-profile">
+            <div class="row">
+                <!-- user profile header start-->
+                <div class="col-sm-12">
+                    <div class="card profile-header"><img class="img-fluid bg-img-cover" src="{{ asset('assets/images/bg_8.jpg') }}" alt="">
+                        <div class="profile-img-wrrap"><img class="img-fluid bg-img-cover" src="{{ asset('asset/images/user-profile/bg-profile.jpg') }}" alt=""></div>
+                        <div class="userpro-box">
+                            <div class="img-wrraper">
+                                <div class="avatar"><img class="img-fluid" alt="" src="https://bootdey.com/img/Content/avatar/avatar7.png"></div><a class="icon-wrapper" href="#"><i class="icofont icofont-pencil-alt-5"></i></a>
+                            </div>
+                            <div class="user-designation">
+                                <div class="title"><a target="_blank" href="">
+                                        <h4>{{ user.nom }} {{ user.prenom }}</h4></a>
+                                    <h6>{{ user.email }}</h6>
+                                </div>
+                                <div class="social-media">
+                                    <ul class="user-list-social">
+                                        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://www.google.com" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://www.rss.com" target="_blank"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="follow">
+                                    <ul class="follow-list">
+                                        <li>
+                                            <div class="follow-num counter">telephone</div><span>{{ user.telephone }}</span>
+                                        </li>
+                                        <li>
+                                            <div class="follow-num counter">adresse</div><span>{{ user.adresse }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- user profile header end-->
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+{% endblock %}
